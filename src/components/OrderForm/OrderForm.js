@@ -9,7 +9,8 @@ export class OrderForm extends Component {
     super();
     this.state = {
       name: '',
-      ingredients: []
+      ingredients: [],
+      price: 0
     };
   }
 
@@ -21,6 +22,8 @@ export class OrderForm extends Component {
     e.preventDefault();
     if (!this.state.ingredients.includes(e.target.name)) {
       this.setState({ ingredients: [...this.state.ingredients, e.target.name] });
+      console.log(e.target.dataset.price)
+      this.setState({ price: this.state.price + parseFloat(e.target.dataset.price) });
     }
   }
 
@@ -42,11 +45,11 @@ export class OrderForm extends Component {
   }
 
   render() {
-    const possibleIngredients = ['beans', 'steak', 'carnitas', 'sofritas', 'lettuce', 'queso fresco', 'pico de gallo', 'hot sauce', 'guacamole', 'jalapenos', 'cilantro', 'sour cream'];
+    const possibleIngredients = [{ name: 'beans', price: .99 }, { name: 'steak', price: .99 }, { name: 'carnitas', price: .99 }, { name: 'sofritas', price: .99 }, { name: 'lettuce', price: .10 }, { name: 'queso fresco', price: .99 }, { name: 'pico de gallo', price: .99 }, { name: 'hot sauce', price: .10 }, { name: 'guacamole', price: 1.99 }, { name: 'jalapenos', price: .99 }, { name: 'cilantro', price: .10 }, { name: 'sourcream', price: .99 }];
     const ingredientButtons = possibleIngredients.map(ingredient => {
       return (
-        <button key={ingredient} name={ingredient} onClick={e => this.handleIngredientChange(e)}>
-          {ingredient}
+        <button key={ingredient.name} name={ingredient.name} data-price={ingredient.price} onClick={e => this.handleIngredientChange(e)}>
+          {ingredient.name}
         </button>
       )
     });

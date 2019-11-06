@@ -11,6 +11,7 @@ const Order = ({ order, handleDeleteOrder }) => {
           return <li key={index}>{ingredient}</li>
         })}
       </ul>
+      <h4>{order.price ? `$${order.price}` : 'No price'}</h4>
       <button id={order.id} type='button' className='delete-order' onClick={(e) => handleDeleteOrder(e)}>Delete</button>
     </div>
   )

@@ -10,6 +10,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     value=""
   />
   <button
+    data-price={0.99}
     key="beans"
     name="beans"
     onClick={[Function]}
@@ -17,6 +18,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     beans
   </button>
   <button
+    data-price={0.99}
     key="steak"
     name="steak"
     onClick={[Function]}
@@ -24,6 +26,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     steak
   </button>
   <button
+    data-price={0.99}
     key="carnitas"
     name="carnitas"
     onClick={[Function]}
@@ -31,6 +34,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     carnitas
   </button>
   <button
+    data-price={0.99}
     key="sofritas"
     name="sofritas"
     onClick={[Function]}
@@ -38,6 +42,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     sofritas
   </button>
   <button
+    data-price={0.1}
     key="lettuce"
     name="lettuce"
     onClick={[Function]}
@@ -45,6 +50,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     lettuce
   </button>
   <button
+    data-price={0.99}
     key="queso fresco"
     name="queso fresco"
     onClick={[Function]}
@@ -52,6 +58,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     queso fresco
   </button>
   <button
+    data-price={0.99}
     key="pico de gallo"
     name="pico de gallo"
     onClick={[Function]}
@@ -59,6 +66,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     pico de gallo
   </button>
   <button
+    data-price={0.1}
     key="hot sauce"
     name="hot sauce"
     onClick={[Function]}
@@ -66,6 +74,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     hot sauce
   </button>
   <button
+    data-price={1.99}
     key="guacamole"
     name="guacamole"
     onClick={[Function]}
@@ -73,6 +82,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     guacamole
   </button>
   <button
+    data-price={0.99}
     key="jalapenos"
     name="jalapenos"
     onClick={[Function]}
@@ -80,6 +90,7 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     jalapenos
   </button>
   <button
+    data-price={0.1}
     key="cilantro"
     name="cilantro"
     onClick={[Function]}
@@ -87,11 +98,12 @@ exports[`Orders Orders container should match the snapshot 1`] = `
     cilantro
   </button>
   <button
-    key="sour cream"
-    name="sour cream"
+    data-price={0.99}
+    key="sourcream"
+    name="sourcream"
     onClick={[Function]}
   >
-    sour cream
+    sourcream
   </button>
   <p>
     Order: 

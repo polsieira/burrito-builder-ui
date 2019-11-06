@@ -19,3 +19,19 @@ export const addNewOrder = async newOrder => {
   const data = await response.json();
   return data;
 }
+
+export const deleteOrder = async id => {
+  const url = `http://localhost:3001/api/v1/orders/${id}`;
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error('There was a problem removing your awesome burrito. Are you sure you want to delete it? Because this s#$% isn\'t working. Might as well order it.')
+  }
+  const data = await response.json();
+  return data;
+}

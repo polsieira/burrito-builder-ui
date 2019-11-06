@@ -14,7 +14,7 @@ describe('order actions', () => {
         ingredients: ['beans', 'more beans', 'more more beans']
       },
       {
-        id: 1,
+        id: 3,
         name: 'Kate',
         ingredients: ['beans', 'more beans', 'more more beans']
 

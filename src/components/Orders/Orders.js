@@ -12,7 +12,8 @@ export class Orders extends Component {
   componentDidMount() {
     getOrders()
       .then(data => {
-        console.log(data);
+        // for testing purposes
+        // console.log(data);
         return data;
       })
       .then(data => this.props.setOrders(data.orders))

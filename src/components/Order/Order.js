@@ -11,6 +11,7 @@ const Order = ({ order }) => {
           return <li key={index}>{ingredient}</li>
         })}
       </ul>
+      <button type='button' className='delete-order'>Delete</button>
     </div>
   )
 }

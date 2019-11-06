@@ -29,6 +29,7 @@ export class OrderForm extends Component {
     if (this.state.name && this.state.ingredients.length > 0) {
       try {
         const data = await addNewOrder(this.state);
+        console.log(data)
         this.props.addOrders(data);
       } catch ({ message }) {
         // hasErrored(message);

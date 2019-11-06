@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Orders, mapStateToProps, mapDispatchToProps } from './Orders';
 import { setOrders } from '../../actions';
 
-jest.mock('../../apiCalls.js');
+// jest.mock('../../apiCalls.js');
 
 // Sorry about the nested describe blocks, I like them
 
@@ -11,7 +11,6 @@ describe('Orders', () => {
 
   describe('Orders container', () => {
     let wrapper;
-    // const mockSetOrders = jest.fn();
     const mockOrders = [
       {
         id: 1,
@@ -30,6 +29,7 @@ describe('Orders', () => {
 
       }
     ];
+    const mockSetOrders = jest.fn();
 
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() => {
@@ -38,10 +38,10 @@ describe('Orders', () => {
           json: () => Promise.resolve(mockOrders)
         });
       });
-      wrapper = shallow(<Orders orders={mockOrders} />);
+      wrapper = shallow(<Orders orders={mockOrders} setOrders={mockSetOrders} />);
     });
 
-    it.skip('should match the snapshot', () => {
+    it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
@@ -85,7 +85,8 @@ describe('Orders', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    it.skip('calls dispatch with an setOrders action when componentDidMount is called', () => {
+
+    it('calls dispatch with an setOrders action when componentDidMount is called', () => {
       const mockOrders = [
         {
           id: 1,
@@ -109,7 +110,7 @@ describe('Orders', () => {
 
       // Execution
       const mappedProps = mapDispatchToProps(mockDispatch);
-      // mappedProps.
+      mappedProps.setOrders(mockOrders);
 
       // Expectaion
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);

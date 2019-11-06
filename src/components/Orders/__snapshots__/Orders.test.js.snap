@@ -1,3 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Orders Orders container should match the snapshot 1`] = `undefined`;
+exports[`Orders Orders container should match the snapshot 1`] = `
+<section>
+  <Order
+    handleDeleteOrder={[Function]}
+    key="1"
+    order={
+      Object {
+        "id": 1,
+        "ingredients": Array [
+          "beans",
+          "more beans",
+          "more more beans",
+        ],
+        "name": "Pol",
+      }
+    }
+  />
+  <Order
+    handleDeleteOrder={[Function]}
+    key="2"
+    order={
+      Object {
+        "id": 2,
+        "ingredients": Array [
+          "beans",
+          "more beans",
+          "more more beans",
+        ],
+        "name": "Lucy",
+      }
+    }
+  />
+  <Order
+    handleDeleteOrder={[Function]}
+    key="3"
+    order={
+      Object {
+        "id": 3,
+        "ingredients": Array [
+          "beans",
+          "more beans",
+          "more more beans",
+        ],
+        "name": "Kate",
+      }
+    }
+  />
+</section>
+`;

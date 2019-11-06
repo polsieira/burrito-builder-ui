@@ -12,8 +12,19 @@ describe('Orders', () => {
   describe('Orders container', () => {
     let wrapper;
     const mockAddOrders = jest.fn();
-
+    const mockNewOrder = {
+      id: 5,
+      name: 'Pol',
+      ingredients: ['BEANS', 'bEaNs']
+    }
     beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockNewOrder)
+        });
+      });
+
       wrapper = shallow(<OrderForm addOrders={mockAddOrders} />);
     });
 
@@ -93,17 +104,35 @@ describe('Orders', () => {
     });
 
     it.skip('should try a fetch and call addOrders on invocation of handleSubmit', () => {
+      const mockEvent = {
+        preventDefault: jest.fn()
+      };
+      wrapper.setState({ name: 'Pol', ingredients: ['BEANS', 'bEaNs'] });
 
+      wrapper.instance().handleSubmit(mockEvent);
+
+      expect(wrapper.instance().props.addOrders).toHaveBeenCalled();
+      // can't get this m*****f***** to work
+      expect(wrapper.instance().clearInputs).toHaveBeenCalled();
     });
 
   });
 
   describe('mapDispatchToProps', () => {
-
+    const mockNewOrder = {
+      id: 5,
+      name: 'Pol',
+      ingredients: ['BEANS', 'bEaNs']
+    }
     const mockDispatch = jest.fn();
+    const actionToDispatch = addOrders(mockNewOrder);
 
+    // Execution
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.addOrders(mockNewOrder);
 
-
+    // Expectaion
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
-
 });
+

@@ -31,7 +31,7 @@ export class OrderForm extends Component {
     e.preventDefault();
     if (this.state.name && this.state.ingredients.length > 0) {
       if (this.state.name === 'Robbie' || 'Travis') {
-        throw new Error('Sorry your burrito sucks')
+        throw new Error('Sorry your burrito does not meet burrito standards.')
       }
       try {
         const data = await addNewOrder(this.state);

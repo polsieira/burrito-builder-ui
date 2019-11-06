@@ -11,6 +11,10 @@ export class Orders extends Component {
 
   componentDidMount() {
     getOrders()
+      .then(data => {
+        console.log(data);
+        return data;
+      })
       .then(data => this.props.setOrders(data.orders))
       .catch(err => console.error('Error fetching:', err));
   }

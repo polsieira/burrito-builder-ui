@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addNewOrder } from '../../apiCalls';
 
-class OrderForm extends Component {
+export class OrderForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -64,7 +64,7 @@ class OrderForm extends Component {
 
         <p>Order: {this.state.ingredients.join(', ') || 'Nothing selected'}</p>
 
-        <button onClick={e => this.handleSubmit(e)}>
+        <button className='test-this-button' onClick={e => this.handleSubmit(e)}>
           Submit Order
         </button>
       </form>

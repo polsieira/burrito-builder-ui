@@ -103,16 +103,16 @@ describe('Orders', () => {
       expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
     });
 
-    it.skip('should try a fetch and call addOrders on invocation of handleSubmit', () => {
+    it('should try a fetch and call addOrders on invocation of handleSubmit', async () => {
       const mockEvent = {
         preventDefault: jest.fn()
       };
       wrapper.setState({ name: 'Pol', ingredients: ['BEANS', 'bEaNs'] });
+      wrapper.instance().clearInputs = jest.fn();
 
-      wrapper.instance().handleSubmit(mockEvent);
+      await wrapper.instance().handleSubmit(mockEvent);
 
-      expect(wrapper.instance().props.addOrders).toHaveBeenCalled();
-      // can't get this m*****f***** to work
+      expect(mockAddOrders).toHaveBeenCalled();
       expect(wrapper.instance().clearInputs).toHaveBeenCalled();
     });
 

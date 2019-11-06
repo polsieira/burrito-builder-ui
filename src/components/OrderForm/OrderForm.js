@@ -30,6 +30,9 @@ export class OrderForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     if (this.state.name && this.state.ingredients.length > 0) {
+      if (this.state.name === 'Robbie' || 'Travis') {
+        throw new Error('Sorry your burrito sucks')
+      }
       try {
         const data = await addNewOrder(this.state);
         this.props.addOrders(data);

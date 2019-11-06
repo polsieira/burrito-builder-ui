@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { setOrders } from '../../actions';
 import { bindActionCreators } from 'redux';
 
-
 export class Orders extends Component {
 
   componentDidMount() {

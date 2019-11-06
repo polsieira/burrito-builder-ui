@@ -10,11 +10,6 @@ export class Orders extends Component {
 
   componentDidMount() {
     getOrders()
-      .then(data => {
-        // for testing purposes
-        // console.log(data);
-        return data;
-      })
       .then(data => this.props.setOrders(data.orders))
       .catch(err => console.error('Error fetching:', err));
   }
@@ -25,7 +20,7 @@ export class Orders extends Component {
       this.props.deleteOrder(e.target.id)
       await byeByeOrder(e.target.id);
     } catch ({ message }) {
-      // hasErrored(message);
+      // do something with error action
     }
   }
 

@@ -1,10 +1,8 @@
 import React from 'react';
 import './Order.css';
-import { deleteOrder } from '../../actions';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
-const Order = ({ order, deleteOrder }) => {
+
+const Order = ({ order, handleDeleteOrder }) => {
   return (
     <div className="order">
       <h3>{order.name}</h3>
@@ -13,15 +11,9 @@ const Order = ({ order, deleteOrder }) => {
           return <li key={index}>{ingredient}</li>
         })}
       </ul>
-      <button id={order.id} type='button' className='delete-order' onClick={(e) => deleteOrder(e.target.id)}>Delete</button>
+      <button id={order.id} type='button' className='delete-order' onClick={(e) => handleDeleteOrder(e)}>Delete</button>
     </div>
   )
 }
 
-export const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    deleteOrder
-  }, dispatch);
-};
-
-export default connect(null, mapDispatchToProps)(Order);
+export default Order;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Orders.css';
-import { getOrders } from '../../apiCalls';
+import { getOrders, byeByeOrder } from '../../apiCalls';
 import Order from '../Order/Order';
 import { connect } from 'react-redux';
 import { setOrders, deleteOrder } from '../../actions';
@@ -19,9 +19,14 @@ export class Orders extends Component {
       .catch(err => console.error('Error fetching:', err));
   }
 
-  handleDeleteOrder = (e) => {
+  handleDeleteOrder = async (e) => {
     e.preventDefault();
-    this.props.deleteOrder(e.target.id)
+    try {
+      this.props.deleteOrder(e.target.id)
+      await byeByeOrder(e.target.id);
+    } catch ({ message }) {
+      // hasErrored(message);
+    }
   }
 
   render() {
